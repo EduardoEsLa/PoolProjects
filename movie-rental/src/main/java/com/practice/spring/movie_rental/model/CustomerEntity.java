@@ -2,21 +2,51 @@ package com.practice.spring.movie_rental.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Data
+@Getter
+@Setter
+@Entity
+@Table(name = "CUSTOMER")
 public class CustomerEntity {
 
-	@Getter @Setter private Integer id;
-	@Getter @Setter private String name;
-	@Getter @Setter private String lastname;
-	@Getter @Setter private Date birthday;
-	@Getter @Setter private String address;
-	@Getter @Setter private String email;
-	@Getter @Setter private String phone;
-	@Getter @Setter private UserEntity userentity;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID", columnDefinition = "INTEGER")
+	private Integer id;
+	
+	@Column(name = "NAME", columnDefinition = "VARCHAR", length = 100)	
+	private String name;
+
+	@Column(name = "LASTNAME", columnDefinition = "VARCHAR", length = 100)	
+	private String lastname;
+	
+	@Column(name = "BIRTHDAY")
+	private Date birthday;
+	
+	@Column(name = "ADDRESS", columnDefinition = "VARCHAR", length = 100)
+	private String address;
+	
+	@Column(name = "EMAIL", columnDefinition = "VARCHAR", length = 50)
+	private String email;
+	
+	@Column(name = "PHONE", columnDefinition = "VARCHAR", length = 12)
+	private String phone;
+	
+	@Column(name = "USER_ID")
+	@OneToOne
+	private UserEntity userentity;
 	
 	
 	/**

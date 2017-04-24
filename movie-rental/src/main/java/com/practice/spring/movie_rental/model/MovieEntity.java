@@ -5,15 +5,17 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Data
+@Getter
+@Setter
 public class MovieEntity {
 
-	@Getter @Setter	private Integer id;
-	@Getter @Setter	private String title;
-	@Getter @Setter	private String genre;
-	@Getter @Setter	private Integer year;
-	@Getter @Setter	private String classification;
-	@Getter @Setter	private Integer quantity;
-	@Getter @Setter	private String description;
+	private Integer id;
+	private String title;
+	private String genre;
+	private Integer year;
+	private String classification;
+	private Integer quantity;
+	private String description;
 	
 	
 	/**

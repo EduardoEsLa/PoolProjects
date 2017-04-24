@@ -7,16 +7,18 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Data
+@Getter
+@Setter
 public class InvoiceEntity {
 
-	@Getter @Setter private Integer invoice_no;
-	@Getter @Setter private Integer customer_id;
-	@Getter @Setter private Integer movie_id;
-	@Getter @Setter private float price;
-	@Getter @Setter private Date rental_date;
-	@Getter @Setter private Date return_date;	
-	@Getter @Setter private Integer quantity;
-	@Getter @Setter private float total;
+	private Integer invoice_no;
+	private Integer customer_id;
+	private Integer movie_id;
+	private float price;
+	private Date rental_date;
+	private Date return_date;	
+	private Integer quantity;
+	private float total;
 	
 	
 	/**
