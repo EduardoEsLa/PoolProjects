@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Data;
 import lombok.Getter;
@@ -25,13 +27,14 @@ public class CustomerEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID", columnDefinition = "INTEGER")
 	private Integer id;
-	
-	@Column(name = "NAME", columnDefinition = "VARCHAR", length = 100)	
+
+	@Column(name = "NAME", columnDefinition = "VARCHAR", length = 100, nullable = false)	
 	private String name;
 
 	@Column(name = "LASTNAME", columnDefinition = "VARCHAR", length = 100)	
 	private String lastname;
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "BIRTHDAY")
 	private Date birthday;
 	
