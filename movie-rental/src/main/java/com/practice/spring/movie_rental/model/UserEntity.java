@@ -23,10 +23,10 @@ public class UserEntity {
 	@Column(name = "ID", columnDefinition = "INTEGER")
 	private Integer id;
 	
-	@Column(name = "USERNAME", columnDefinition = "VARCHAR", length = 20)
+	@Column(name = "USERNAME", nullable = false)
 	private String username;
 	
-	@Column(name = "PASSWORD", columnDefinition = "VARCHAR", length = 20)	
+	@Column(name = "PASSWORD", nullable = false)	
 	private String password;
 	
 	
@@ -37,7 +37,6 @@ public class UserEntity {
 	 * @param password
 	 */
 	public UserEntity(Integer id, String username, String password) {
-		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;

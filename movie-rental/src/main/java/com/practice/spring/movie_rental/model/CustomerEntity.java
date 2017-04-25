@@ -28,23 +28,23 @@ public class CustomerEntity {
 	@Column(name = "ID", columnDefinition = "INTEGER")
 	private Integer id;
 
-	@Column(name = "NAME", columnDefinition = "VARCHAR", length = 100, nullable = false)	
+	@Column(name = "NAME", nullable = false)	
 	private String name;
 
-	@Column(name = "LASTNAME", columnDefinition = "VARCHAR", length = 100)	
+	@Column(name = "LASTNAME", nullable = false)	
 	private String lastname;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "BIRTHDAY")
 	private Date birthday;
 	
-	@Column(name = "ADDRESS", columnDefinition = "VARCHAR", length = 100)
+	@Column(name = "ADDRESS", nullable = false)
 	private String address;
 	
-	@Column(name = "EMAIL", columnDefinition = "VARCHAR", length = 50)
+	@Column(name = "EMAIL", nullable = false)
 	private String email;
 	
-	@Column(name = "PHONE", columnDefinition = "VARCHAR", length = 12)
+	@Column(name = "PHONE", nullable = false)
 	private String phone;
 	
 	@Column(name = "USER_ID")
@@ -64,7 +64,6 @@ public class CustomerEntity {
 	 */
 	public CustomerEntity(Integer id, String name, String lastname, Date birthday, String address, String email,
 			String phone) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.lastname = lastname;

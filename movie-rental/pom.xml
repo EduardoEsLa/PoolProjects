@@ -14,7 +14,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<!-- Apache-Maven plugins start -->
 	<build>
+	
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -35,8 +37,9 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		
 	</build>
-
+	<!-- Apache-Maven plugins start -->
 
 
 	<dependencies>
@@ -127,13 +130,12 @@
 			<version>4.3.8.RELEASE</version>
 		</dependency>
 
-		<!-- Spring dependencies end -->
-
-
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
 			<version>1.11.3.RELEASE</version>
 		</dependency>
+		<!-- Spring dependencies end -->
+
 	</dependencies>
 </project>
