@@ -7,20 +7,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Data
 @Getter
 @Setter
 @Entity
 @Table(name = "CUSTOMER")
+@NoArgsConstructor
 public class CustomerEntity {
 
 	@Id
@@ -47,8 +48,8 @@ public class CustomerEntity {
 	@Column(name = "PHONE", nullable = false)
 	private String phone;
 	
-	@Column(name = "USER_ID")
 	@OneToOne
+	@JoinColumn(name = "USER_ID")
 	private UserEntity userentity;
 	
 	

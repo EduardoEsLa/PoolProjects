@@ -8,6 +8,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		
 			<class>com.practice.spring.movie_rental.model.CustomerEntity</class>
+			<class>com.practice.spring.movie_rental.model.GenreEntity</class>
 	 		<class>com.practice.spring.movie_rental.model.InvoiceEntity</class>
 	 		<class>com.practice.spring.movie_rental.model.MovieEntity</class>
 	 		<class>com.practice.spring.movie_rental.model.UserEntity</class>

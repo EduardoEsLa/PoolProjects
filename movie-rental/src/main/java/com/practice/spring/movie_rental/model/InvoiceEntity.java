@@ -1,32 +1,38 @@
 package com.practice.spring.movie_rental.model;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Data
 @Getter
 @Setter
 @Entity
 @Table(name = "INVOICE")
+@NoArgsConstructor
 public class InvoiceEntity {
 
 	@Id
 	@Column(name = "INVOICE_NO", nullable = false)	
 	private Integer invoice_no;
 	
-	@Column(name = "CUSTOMER_ID", nullable = false)
-	private Integer customer_id;
+	@ManyToOne
+	@JoinColumn(name = "CUSTOMER_ID", nullable = false)
+	private CustomerEntity customerEntity;
 	
-	@Column(name = "MOVIE_ID", nullable = false)
-	private Integer movie_id;
+	@OneToMany	
+	@JoinColumn(name = "MOVIE_ID", nullable = false)
+	private Set<MovieEntity> movieEntity;
 	
 	@Column(name = "PRICE", nullable = false)
 	private float price;
@@ -55,11 +61,11 @@ public class InvoiceEntity {
 	 * @param quantity
 	 * @param total
 	 */
-	public InvoiceEntity(Integer invoice_no, Integer customer_id, Integer movie_id, float price, Date rental_date,
+	public InvoiceEntity(Integer invoice_no, CustomerEntity customerEntity, Set<MovieEntity> movieEntity, float price, Date rental_date,
 			Date return_date, Integer quantity, float total) {
 		this.invoice_no = invoice_no;
-		this.customer_id = customer_id;
-		this.movie_id = movie_id;
+		this.customerEntity = customerEntity;
+		this.movieEntity = movieEntity;
 		this.price = price;
 		this.rental_date = rental_date;
 		this.return_date = return_date;

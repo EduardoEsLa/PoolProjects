@@ -3,15 +3,19 @@ package com.practice.spring.movie_rental.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Data
 @Getter
 @Setter
+@EqualsAndHashCode
+@NoArgsConstructor
 @Entity
 @Table(name = "MOVIE")
 public class MovieEntity {
@@ -23,8 +27,9 @@ public class MovieEntity {
 	@Column(name = "TITLE", nullable = false)
 	private String title;
 	
-	@Column(name = "GENRE", nullable = false)
-	private String genre;
+	@ManyToOne
+	@JoinColumn(name = "GENRE", nullable = false)
+	private GenreEntity genreEntity;
 	
 	@Column(name = "YEAR", nullable = false)
 	private Integer year;
@@ -49,11 +54,11 @@ public class MovieEntity {
 	 * @param quantity
 	 * @param description
 	 */
-	public MovieEntity(Integer id, String title, String genre, Integer year, String classification, Integer quantity,
+	public MovieEntity(Integer id, String title, GenreEntity genreEntity, Integer year, String classification, Integer quantity,
 			String description) {
 		this.id = id;
 		this.title = title;
-		this.genre = genre;
+		this.genreEntity = genreEntity;
 		this.year = year;
 		this.classification = classification;
 		this.quantity = quantity;

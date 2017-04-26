@@ -13,35 +13,29 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
-@Table(name = "USER")
-public class UserEntity {
+@Table(name = "GENRE")
+@NoArgsConstructor
+public class GenreEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID", columnDefinition = "INTEGER")
 	private Integer id;
 	
-	@Column(name = "USERNAME", nullable = false)
-	private String username;
-	
-	@Column(name = "PASSWORD", nullable = false)	
-	private String password;
-	
-	@Column(name = "USERROLE", nullable = false)
-	private String userRole;
+	@Column(name = "GENRES", nullable = false)
+	private String genres;
+
 	
 	/**
 	 * Constructor of the fields
 	 * @param id
-	 * @param username
-	 * @param password
+	 * @param genres
 	 */
-	public UserEntity(Integer id, String username, String password, String userRole) {
+	public GenreEntity(Integer id, String genres) {
 		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.userRole = userRole;	
+		this.genres = genres;
 	}
+	
+	
 }

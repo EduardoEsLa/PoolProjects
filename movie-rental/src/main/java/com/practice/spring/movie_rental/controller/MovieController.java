@@ -1,15 +1,21 @@
 package com.practice.spring.movie_rental.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.practice.spring.movie_rental.repository.UserEntityRepo;
 
 @Controller
 public class MovieController {
 
+	@Autowired
+	private UserEntityRepo userEntityRepo;
+
 	@GetMapping("/ping")
-	@ResponseBody
-	public String ping() {
-		return "pong";
+	public String ping(Model model) {
+		model.addAttribute("users", userEntityRepo.findAll());
+		return "home";
 	}
 }
