@@ -13,12 +13,22 @@
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
+<!--  
 	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
 		p:driverClassName="com.mysql.jdbc.Driver" 
 		p:url="jdbc:mysql://127.0.0.1:3306/movie-rental" 
 		p:username="root"
 		p:password="root" 
 		destroy-method="close" />
+-->
+
+	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
+		p:driverClassName="org.h2.Driver" 
+		p:url="jdbc:h2:~/test" 
+		p:username="sa"
+		p:password="" 
+		destroy-method="close" />
+
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
