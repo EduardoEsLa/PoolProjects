@@ -6,4 +6,5 @@ import com.practice.spring.movie_rental.model.CustomerEntity;
 
 public interface CustomerEntityRepo extends CrudRepository<CustomerEntity, Integer> {
 
+	public CustomerEntity findByBirthday();
 }
