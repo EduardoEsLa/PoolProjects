@@ -11,22 +11,15 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
-
+	
+<!-- MySql Database configuration -->	
+<!--
 	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
 		p:driverClassName="com.mysql.jdbc.Driver" 
 		p:url="jdbc:mysql://127.0.0.1:3306/movie-rental" 
 		p:username="root"
 		p:password="root" 
 		destroy-method="close" />
-		
-<!-- 
-	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
-		p:driverClassName="org.h2.Driver" 
-		p:url="jdbc:h2:~/test" 
-		p:username="sa"
-		p:password="" 
-		destroy-method="close" />
- -->
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
@@ -45,6 +38,36 @@
 			</props>
 		</property>
 	</bean>
+ -->		
+
+
+<!-- H2 Database configuration -->
+	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
+		p:driverClassName="org.h2.Driver" 
+		p:url="jdbc:h2:~/test" 
+		p:username="sa"
+		p:password="" 
+		destroy-method="close" />
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+		p:dataSource-ref="dataSource">
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="database" value="H2" />
+				<property name="showSql" value="true" />
+				<property name="generateDdl" value="true" />
+			</bean>
+		</property>
+		<property name="packagesToScan" value="com.practice.spring.movie_rental.model" />
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+
+
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
 		p:entityManagerFactory-ref="entityManagerFactory" />
