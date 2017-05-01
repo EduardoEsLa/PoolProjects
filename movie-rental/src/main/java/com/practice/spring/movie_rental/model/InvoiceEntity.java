@@ -11,15 +11,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@EqualsAndHashCode
+@NoArgsConstructor
 @Entity
 @Table(name = "INVOICE")
-@NoArgsConstructor
 public class InvoiceEntity {
 
 	@Id

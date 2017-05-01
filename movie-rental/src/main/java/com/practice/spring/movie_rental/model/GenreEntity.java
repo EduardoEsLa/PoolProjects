@@ -7,15 +7,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@EqualsAndHashCode
+@NoArgsConstructor
 @Entity
 @Table(name = "GENRE")
-@NoArgsConstructor
 public class GenreEntity {
 
 	@Id
@@ -23,8 +25,8 @@ public class GenreEntity {
 	@Column(name = "ID", columnDefinition = "INTEGER")
 	private Integer id;
 	
-	@Column(name = "GENRES", nullable = false)
-	private String genres;
+	@Column(name = "DESCRIPTION", nullable = false)
+	private String description;
 
 	
 	/**
@@ -32,9 +34,9 @@ public class GenreEntity {
 	 * @param id
 	 * @param genres
 	 */
-	public GenreEntity(Integer id, String genres) {
+	public GenreEntity(Integer id, String description) {
 		this.id = id;
-		this.genres = genres;
+		this.description = description;
 	}
 	
 	
