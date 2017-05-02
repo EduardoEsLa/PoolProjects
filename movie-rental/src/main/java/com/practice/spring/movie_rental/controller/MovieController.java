@@ -15,9 +15,7 @@ public class MovieController {
 
 	@GetMapping("/ping")
 	public String ping(Model model) {
-		return "pong";
-/*		model.addAttribute("users", userEntityRepo.findAll());
+		model.addAttribute("users", userEntityRepo.findAll());
 		return "home";
-*/
 	}
 }

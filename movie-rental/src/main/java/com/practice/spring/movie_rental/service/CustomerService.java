@@ -1,5 +1,7 @@
 package com.practice.spring.movie_rental.service;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,9 +28,10 @@ public class CustomerService {
 	
 	/**
 	 * Method to get a customer according the birthday.
+	 * @param date TODO
 	 * @return customer
 	 */
-	public CustomerEntity gettingCustomerByBirthday(){
-		return customerEntityRepo.findByBirthday();
+	public CustomerEntity gettingCustomerByBirthday(Date date) {
+		return customerEntityRepo.findByBirthday(date);
 	}
 }

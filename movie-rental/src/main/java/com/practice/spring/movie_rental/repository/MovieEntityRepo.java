@@ -8,9 +8,9 @@ import com.practice.spring.movie_rental.model.MovieEntity;
 
 public interface MovieEntityRepo extends CrudRepository<MovieEntity, Integer> {
 
-	public void deleteByTitle(String Title);
+	void deleteByTitle(String Title);
 
-	public MovieEntity findByTitle(String Title);
+	MovieEntity findByTitle(String Title);
 
-	public List<MovieEntity> findByDescription(String description);
+	List<MovieEntity> findByDescription(String description);
 }
