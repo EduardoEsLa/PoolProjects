@@ -13,7 +13,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 <!-- MySql Database configuration -->	
-
+<!--
 	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
 		p:driverClassName="com.mysql.jdbc.Driver" 
 		p:url="jdbc:mysql://127.0.0.1:3306/movie-rental" 
@@ -38,11 +38,11 @@
 			</props>
 		</property>
 	</bean>
-		
+-->		
 
 
 <!-- H2 Database configuration -->
-<!--
+
 	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
 		p:driverClassName="org.h2.Driver" 
 		p:url="jdbc:h2:~/test" 
@@ -67,7 +67,7 @@
 			</props>
 		</property>
 	</bean>
--->
+
 
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"

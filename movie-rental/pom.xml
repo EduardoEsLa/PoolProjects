@@ -101,7 +101,7 @@
 			<version>${logback.version}</version>
 			<scope>runtime</scope>
 		</dependency>
-
+		
 		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
