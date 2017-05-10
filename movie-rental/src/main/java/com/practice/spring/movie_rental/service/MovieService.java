@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.practice.spring.movie_rental.model.GenreEntity;
 import com.practice.spring.movie_rental.model.MovieEntity;
 import com.practice.spring.movie_rental.repository.MovieEntityRepo;
 
@@ -67,20 +66,12 @@ public class MovieService {
 	
 	
 	/**
-	 * Method to find a movie by genre.
+	 * Method to find list of movies by genre.
 	 * @param genreEntity
-	 * @return movie
+	 * @return list of movies
 	 */
-	public MovieEntity findingMovieByGenre(final GenreEntity genreEntity){
-		return null;
+	public List<MovieEntity> findingMovieByGenre(final String Description){
+		return movieEntityRepo.findByDescription(Description);
 	}
 	
-	/**
-	 * Method to find a collection of movies by genre.	
-	 * @param genreEntity
-	 * @return list of movies.
-	 */
-	public List<MovieEntity> findingMoviesByGenre(final GenreEntity genreEntity){
-		return null;
-	}
 }

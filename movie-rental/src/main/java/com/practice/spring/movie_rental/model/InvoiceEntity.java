@@ -32,7 +32,7 @@ public class InvoiceEntity {
 	@JoinColumn(name = "CUSTOMER_ID", nullable = false)
 	private CustomerEntity customerEntity;
 	
-	@OneToMany	
+	@OneToMany
 	@JoinColumn(name = "MOVIE_ID", nullable = false)
 	private Set<MovieEntity> movieEntity;
 	

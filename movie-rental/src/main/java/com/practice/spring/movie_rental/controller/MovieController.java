@@ -1,21 +1,31 @@
 package com.practice.spring.movie_rental.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.practice.spring.movie_rental.repository.UserEntityRepo;
+import com.practice.spring.movie_rental.model.MovieEntity;
+import com.practice.spring.movie_rental.repository.MovieEntityRepo;
 
 @RestController
 public class MovieController {
 
 	@Autowired
-	private UserEntityRepo userEntityRepo;
+	private MovieEntityRepo movieEntityRepo;
 
-	@GetMapping("/ping")
-	public String ping(Model model) {
-		model.addAttribute("users", userEntityRepo.findAll());
-		return "home";
+	
+	@RequestMapping(value = "/movies", method = RequestMethod.POST)
+	public void createMovie(final MovieEntity movieEntity) {
+		movieEntityRepo.save(movieEntity);
+	}
+
+	@RequestMapping(value = "/movies", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<MovieEntity> movieList() {
+		return (List<MovieEntity>) movieEntityRepo.findAll();
 	}
 }

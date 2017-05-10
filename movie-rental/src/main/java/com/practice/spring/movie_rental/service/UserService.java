@@ -30,7 +30,7 @@ public class UserService {
 	
 	/**
 	 * Method to get a collection of users.
-	 * @return colection of users.
+	 * @return collection of users.
 	 */
 	public Iterable<UserEntity> findingUsers(){
 		return userEntityRepo.findAll();

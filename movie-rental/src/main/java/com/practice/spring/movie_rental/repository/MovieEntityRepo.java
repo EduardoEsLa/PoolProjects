@@ -13,4 +13,5 @@ public interface MovieEntityRepo extends CrudRepository<MovieEntity, Integer> {
 	MovieEntity findByTitle(String Title);
 
 	List<MovieEntity> findByDescription(String description);
+	
 }
