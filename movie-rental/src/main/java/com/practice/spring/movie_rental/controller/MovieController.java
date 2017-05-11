@@ -33,14 +33,16 @@ public class MovieController {
 		return (List<MovieEntity>) movieEntityRepo.findAll();
 	}
 
-/*	
+	
 	@RequestMapping(value = "/movies", method = RequestMethod.POST)
 	public void createMovie(final MovieEntity movieEntity) {
 		movieEntityRepo.save(movieEntity);
 	}
-*/
+
+	
 	@GetMapping("/ping")
 	public String ping() {
 		return "home";
 	}
+
 }
