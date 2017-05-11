@@ -1,14 +1,12 @@
 package com.practice.spring.movie_rental.model;
 
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.EqualsAndHashCode;
@@ -32,9 +30,9 @@ public class InvoiceEntity {
 	@JoinColumn(name = "CUSTOMER_ID", nullable = false)
 	private CustomerEntity customerEntity;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "MOVIE_ID", nullable = false)
-	private Set<MovieEntity> movieEntity;
+	private MovieEntity movieEntity;
 	
 	@Column(name = "PRICE", nullable = false)
 	private float price;
@@ -63,7 +61,7 @@ public class InvoiceEntity {
 	 * @param quantity
 	 * @param total
 	 */
-	public InvoiceEntity(Integer invoice_no, CustomerEntity customerEntity, Set<MovieEntity> movieEntity, float price, Date rental_date,
+	public InvoiceEntity(Integer invoice_no, CustomerEntity customerEntity, MovieEntity movieEntity, float price, Date rental_date,
 			Date return_date, Integer quantity, float total) {
 		this.invoice_no = invoice_no;
 		this.customerEntity = customerEntity;

@@ -28,7 +28,7 @@ public class MovieEntity {
 	private String title;
 	
 	@ManyToOne
-	@JoinColumn(name = "GENRE", nullable = false)
+	@JoinColumn(name = "GENRE_ID", nullable = false)
 	private GenreEntity genreEntity;
 	
 	@Column(name = "YEAR", nullable = false)
