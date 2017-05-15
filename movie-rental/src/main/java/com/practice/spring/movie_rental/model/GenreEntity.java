@@ -25,8 +25,8 @@ public class GenreEntity {
 	@Column(name = "ID", columnDefinition = "INTEGER")
 	private Integer id;
 	
-	@Column(name = "DESCRIPTION", nullable = false)
-	private String description;
+	@Column(name = "GENRE", nullable = false)
+	private String genre;
 
 	
 	/**
@@ -34,9 +34,9 @@ public class GenreEntity {
 	 * @param id
 	 * @param genres
 	 */
-	public GenreEntity(Integer id, String description) {
+	public GenreEntity(Integer id, String genre) {
 		this.id = id;
-		this.description = description;
+		this.genre = genre;
 	}
 	
 	

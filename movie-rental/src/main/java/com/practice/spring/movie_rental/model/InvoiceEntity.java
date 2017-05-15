@@ -1,11 +1,13 @@
 package com.practice.spring.movie_rental.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -30,9 +32,9 @@ public class InvoiceEntity {
 	@JoinColumn(name = "CUSTOMER_ID", nullable = false)
 	private CustomerEntity customerEntity;
 	
-	@ManyToOne
+	@ManyToMany
 	@JoinColumn(name = "MOVIE_ID", nullable = false)
-	private MovieEntity movieEntity;
+	private List<MovieEntity> movieEntity;
 	
 	@Column(name = "PRICE", nullable = false)
 	private float price;
@@ -61,7 +63,7 @@ public class InvoiceEntity {
 	 * @param quantity
 	 * @param total
 	 */
-	public InvoiceEntity(Integer invoice_no, CustomerEntity customerEntity, MovieEntity movieEntity, float price, Date rental_date,
+	public InvoiceEntity(Integer invoice_no, CustomerEntity customerEntity, List<MovieEntity> movieEntity, float price, Date rental_date,
 			Date return_date, Integer quantity, float total) {
 		this.invoice_no = invoice_no;
 		this.customerEntity = customerEntity;

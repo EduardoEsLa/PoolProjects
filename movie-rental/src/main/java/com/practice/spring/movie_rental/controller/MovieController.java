@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.practice.spring.movie_rental.model.GenreEntity;
 import com.practice.spring.movie_rental.model.MovieEntity;
-import com.practice.spring.movie_rental.model.UserEntity;
+import com.practice.spring.movie_rental.repository.GenreEntityRepo;
 import com.practice.spring.movie_rental.repository.MovieEntityRepo;
-import com.practice.spring.movie_rental.repository.UserEntityRepo;
 
 @RestController
 public class MovieController {
@@ -21,28 +21,39 @@ public class MovieController {
 	@Autowired
 	private MovieEntityRepo movieEntityRepo;
 	@Autowired
-	private UserEntityRepo userEntityRepo;
+	private GenreEntityRepo genreEntityRepo;
 
-	@RequestMapping(value = "/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<UserEntity> userList() {
-    	return (List<UserEntity>) userEntityRepo.findAll();
+	@GetMapping("/ping")
+	public String ping() {
+		return "home";
 	}
 	
 	@RequestMapping(value = "/movies", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<MovieEntity> movieList() {
 		return (List<MovieEntity>) movieEntityRepo.findAll();
 	}
-
 	
 	@RequestMapping(value = "/movies", method = RequestMethod.POST)
 	public void createMovie(final MovieEntity movieEntity) {
 		movieEntityRepo.save(movieEntity);
 	}
 
+	@RequestMapping(value = "/movies/{title}", method = RequestMethod.POST)
+	public void deleteMovie(final String Title) {
+		movieEntityRepo.deleteByTitle(Title);
+	}
 	
-	@GetMapping("/ping")
-	public String ping() {
-		return "home";
+	@RequestMapping(value = "/movies/{title}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody MovieEntity movieByTitle(final String Title) {
+		MovieEntity movieByTitle = movieEntityRepo.findByTitle(Title);
+		return movieByTitle;
+	}
+	
+	@RequestMapping(value = "/movies/{genre}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<MovieEntity> movieByGenre(final String genre) {
+		GenreEntity movieGenre = genreEntityRepo.findByGenre(genre);
+		List<MovieEntity> movieByGenre = movieEntityRepo.findByGenreEntity(movieGenre);
+		return movieByGenre;
 	}
 
 }

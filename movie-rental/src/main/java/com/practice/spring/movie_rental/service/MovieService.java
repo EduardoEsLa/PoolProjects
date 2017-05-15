@@ -71,7 +71,7 @@ public class MovieService {
 	 * @return list of movies
 	 */
 	public List<MovieEntity> findingMovieByGenre(final String Description){
-		return movieEntityRepo.findByDescription(Description);
+		return movieEntityRepo.findByGenreEntity(g);
 	}
 	
 }

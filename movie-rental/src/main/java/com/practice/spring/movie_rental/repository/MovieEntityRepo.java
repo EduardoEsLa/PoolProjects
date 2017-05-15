@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
+import com.practice.spring.movie_rental.model.GenreEntity;
 import com.practice.spring.movie_rental.model.MovieEntity;
 
 public interface MovieEntityRepo extends CrudRepository<MovieEntity, Integer> {
@@ -12,6 +13,6 @@ public interface MovieEntityRepo extends CrudRepository<MovieEntity, Integer> {
 
 	MovieEntity findByTitle(String Title);
 
-	List<MovieEntity> findByDescription(String description);
+	List<MovieEntity> findByGenreEntity(GenreEntity genreEntity);
 	
 }
