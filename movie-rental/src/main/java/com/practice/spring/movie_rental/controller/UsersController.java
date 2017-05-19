@@ -22,4 +22,15 @@ public class UsersController {
 	public @ResponseBody List<UserEntity> userList() {
     	return (List<UserEntity>) userEntityRepo.findAll();
 	}
+	
+	@RequestMapping(value = "/users", method = RequestMethod.POST)
+	public void creatingUser(final UserEntity userEntity) {
+		userEntityRepo.save(userEntity);
+	}
+	
+	@RequestMapping(value = "/users/{username}", method = RequestMethod.POST)
+	public void deletingByUsername(final String username) {
+		userEntityRepo.deleteByUsername(username);
+	}
+	
 }

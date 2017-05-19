@@ -47,11 +47,11 @@ public class CustomerEntity {
 	
 	@Column(name = "PHONE", nullable = false)
 	private String phone;
-	
+
 	@OneToOne
-	@JoinColumn(name = "USER_ID")
-	private UserEntity userentity;
-	
+	@JoinColumn(name = "USER_ID", nullable = false)
+	private UserEntity userEntity;
+
 	
 	/**
 	 * Constructor of the fields
@@ -62,15 +62,16 @@ public class CustomerEntity {
 	 * @param address
 	 * @param email
 	 * @param phone
+	 * @param userEntity
 	 */
 	public CustomerEntity(Integer id, String name, String lastname, Date birthday, String address, String email,
-			String phone) {
+			String phone, UserEntity userEntity) {
 		this.id = id;
 		this.name = name;
 		this.lastname = lastname;
 		this.birthday = birthday;
 		this.address = address;
 		this.email = email;
-		this.phone = phone;
+		this.userEntity = userEntity;
 	}
 }

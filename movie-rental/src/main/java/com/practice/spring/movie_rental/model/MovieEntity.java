@@ -37,9 +37,6 @@ public class MovieEntity {
 	@Column(name = "CLASSIFICATION", nullable = false)
 	private String classification;
 	
-	@Column(name = "QUANTITY", nullable = false)
-	private Integer quantity;
-	
 	@Column(name = "DESCRIPTION", nullable = false)
 	private String description;
 	
@@ -51,17 +48,14 @@ public class MovieEntity {
 	 * @param genre
 	 * @param year
 	 * @param classification
-	 * @param quantity
 	 * @param description
 	 */
-	public MovieEntity(Integer id, String title, GenreEntity genreEntity, Integer year, String classification, Integer quantity,
-			String description) {
+	public MovieEntity(Integer id, String title, GenreEntity genreEntity, Integer year, String classification, String description) {
 		this.id = id;
 		this.title = title;
 		this.genreEntity = genreEntity;
 		this.year = year;
 		this.classification = classification;
-		this.quantity = quantity;
 		this.description = description;
 	}	
 }

@@ -10,4 +10,9 @@ public interface CustomerEntityRepo extends CrudRepository<CustomerEntity, Integ
 	
 	CustomerEntity findByBirthday(Date date);
 
+	CustomerEntity findByName(String name);
+
+	CustomerEntity findByUserEntityUsername(String Username);
+	
+	CustomerEntity deleteByUserEntityUsername(String Username);
 }
